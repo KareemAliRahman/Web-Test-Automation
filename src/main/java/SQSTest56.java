@@ -39,6 +39,25 @@ public class SQSTest56 {
     	
     	driver.quit();
 	}
+	
+	public void useCase6(WebDriver driver){
+		driver.get(SQSURL);
+		WebElement element = driver.findElement(By.name("search_item"));
+		element.sendKeys("test");
+		element.submit();
+//		assertTrue(driver.getTitle().toLowerCase().contains("search"));
+		assertNotNull(driver.findElement(By.linkText("next >>")));
+		assertTrue(driver.findElements(By.linkText("<< previous")).size() < 1);
+		
+		element = driver.findElement(By.linkText("next >>"));
+		element.click();
+		
+		element = driver.findElement(By.linkText("<< previous"));
+		assertNotNull(element);
+		element.click();
+		
+		driver.quit();
+	}
 
 	@Test
 	public void UseCaseChrome5() {
@@ -56,6 +75,24 @@ public class SQSTest56 {
 	public void UseCaseIE5() {
 		driver = new InternetExplorerDriver();
 		useCase5(driver);
+	}
+	
+	@Test
+	public void UseCaseChrome6() {
+		driver = new ChromeDriver();
+		useCase6(driver);
+	}
+	
+	@Test
+	public void UseCaseFirefox6() {
+		driver = new FirefoxDriver();
+		useCase6(driver);
+	}
+	
+	@Test
+	public void UseCaseIE6() {
+		driver = new InternetExplorerDriver();
+		useCase6(driver);
 	}
 	
 	@AfterClass
