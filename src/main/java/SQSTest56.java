@@ -1,14 +1,23 @@
 import static org.junit.Assert.*;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SQSTest56 {
 	
@@ -27,7 +36,6 @@ public class SQSTest56 {
     	
     	WebElement we = driver.findElement(By.linkText("Sitemap"));
     	we.click();
-    	System.out.println(driver.getTitle().toLowerCase());
     	//assertTrue(driver.getTitle().toLowerCase().equals("sitemap"));
     	
     	we = driver.findElement(By.xpath("//*[@id='sitemap']/ul/li/img"));
@@ -78,6 +86,41 @@ public class SQSTest56 {
 	}
 	
 	@Test
+	public void UseCaseAndroid5(){
+		Map<String, String> mobileEmulation = new HashMap<String, String>();
+		mobileEmulation.put("deviceName", "Google Nexus 5");
+
+		Map<String, Object> chromeOptions = new HashMap<String, Object>();
+		chromeOptions.put("androidPackage", "com.android.chrome");
+		chromeOptions.put("androidDeviceSerial", "019c907d9c0a8f2b");
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+		
+		WebDriver driver = null;
+
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:9515"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+    	driver.get(SQSURL);
+    	
+    	WebElement we = driver.findElement(By.linkText("Sitemap"));
+    	we.click();
+    	//assertTrue(driver.getTitle().toLowerCase().equals("sitemap"));
+    	
+    	we = driver.findElement(By.xpath("//*[@id='sitemap']/ul/li/img"));
+    	we.click();
+    	assertTrue(we.getAttribute("src").contains("open.gif"));
+    	
+    	we.click();
+    	assertTrue(we.getAttribute("src").contains("close.gif"));
+    	
+    	driver.quit();
+	}
+	
+	@Test
 	public void UseCaseChrome6() {
 		driver = new ChromeDriver();
 		useCase6(driver);
@@ -95,9 +138,50 @@ public class SQSTest56 {
 		useCase6(driver);
 	}
 	
+	@Test
+	public void UseCaseAndroid6(){
+		Map<String, String> mobileEmulation = new HashMap<String, String>();
+		mobileEmulation.put("deviceName", "Google Nexus 5");
+
+		Map<String, Object> chromeOptions = new HashMap<String, Object>();
+		chromeOptions.put("androidPackage", "com.android.chrome");
+		chromeOptions.put("androidDeviceSerial", "019c907d9c0a8f2b");
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+		
+		WebDriver driver = null;
+
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:9515"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		driver.get(SQSURL);
+//		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+//		jsx.executeScript("window.scrollBy(0,450)", "");
+//		WebElement element = driver.findElement(By.name("search_item"));
+		WebElement element = driver.findElement(By.xpath("//*[@id='mobileSearch']/input[1]"));
+
+		element.sendKeys("test");
+		element.submit();
+//		assertTrue(driver.getTitle().toLowerCase().contains("search"));
+		assertNotNull(driver.findElement(By.linkText("next >>")));
+		assertTrue(driver.findElements(By.linkText("<< previous")).size() < 1);
+		
+		element = driver.findElement(By.linkText("next >>"));
+		element.click();
+		
+		element = driver.findElement(By.linkText("<< previous"));
+		assertNotNull(element);
+		element.click();
+		
+		driver.quit();
+	}
+	
 	@AfterClass
 	public static void tearDown(){
-		driver.quit();
+		//driver.quit();
 	}
 	
 
