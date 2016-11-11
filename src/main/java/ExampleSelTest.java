@@ -103,7 +103,8 @@ public class ExampleSelTest {
 	}
 	
 	@Test
-	public void androidTest() throws MalformedURLException{
+	public void androidTest() throws MalformedURLException{	
+		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe"); 
 		Map<String, String> mobileEmulation = new HashMap<String, String>();
 		mobileEmulation.put("deviceName", "Google Nexus 5");
 
