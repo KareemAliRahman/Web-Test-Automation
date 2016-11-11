@@ -124,6 +124,7 @@ public class ExampleSelTest {
 
 		Map<String, Object> chromeOptions = new HashMap<String, Object>();
 		chromeOptions.put("androidPackage", "com.android.chrome");
+		chromeOptions.put("androidDeviceSerial", "019c907d9c0a8f2b");
 	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 		
@@ -134,7 +135,8 @@ public class ExampleSelTest {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-        driver.get("http://www.google.com");
+        driver.get("https://www.sqs.com/en-group/");
+        driver.quit();
 	}
 
 }
