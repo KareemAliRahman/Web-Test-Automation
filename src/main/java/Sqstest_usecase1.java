@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Sqstest_usecase1 {
 
 	@Test
-	public void test1() throws InterruptedException {
+	public void test_IE() throws InterruptedException {
 		
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\elsherbina\\Desktop\\Selenium Project\\geckodriver-v0.11.1-win64\\geckodriver.exe");
 		System.setProperty("webdriver.ie.driver",
@@ -189,7 +189,7 @@ public class Sqstest_usecase1 {
 	}
 
 @Test
-public void test2() throws InterruptedException {
+public void test_Firefox() throws InterruptedException {
 	
 	System.setProperty("webdriver.gecko.driver", "C:\\Users\\elsherbina\\Desktop\\Selenium Project\\geckodriver-v0.11.1-win64\\geckodriver.exe");
 	System.setProperty("webdriver.ie.driver",
@@ -350,7 +350,7 @@ public void test2() throws InterruptedException {
 }
 
 @Test
-public void test3() throws InterruptedException {
+public void test_Chrome() throws InterruptedException {
 	
 //	System.setProperty("webdriver.gecko.driver", "C:\\Users\\elsherbina\\Desktop\\Selenium Project\\geckodriver-v0.11.1-win64\\geckodriver.exe");
 //	System.setProperty("webdriver.ie.driver",
