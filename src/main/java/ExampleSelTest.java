@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +21,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import TestCategories.ChromeTest;
 
 
 public class ExampleSelTest {
@@ -44,6 +48,30 @@ public class ExampleSelTest {
         driver.quit();
 
 	}
+	
+	@Test
+	@Category(ChromeTest.class)
+	public void testChrome() {
+		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe");
+    	WebDriver driver = new ChromeDriver();
+    	//driver.manage().window().setPosition(new Point(750, 1334));
+    	//driver.manage().window().setSize(new Dimension(500, 500));
+        
+    	driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella!");
+        element.submit();
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella!");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella!");
+        driver.quit();
+
+	}
+
 	
 	@Test
 	public void test1() {
@@ -103,6 +131,41 @@ public class ExampleSelTest {
 	}
 	
 	@Test
+	public void test2Grid() {
+	   	//System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
+
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	//cap.setPlatform(Platform.WINDOWS.VISTA);
+	   	cap.setPlatform(Platform.VISTA);
+	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
+//	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//	   	cap.setBrowserName("internet explorer");
+//	   	cap.setBrowserName("");
+//	   	cap.
+	   	WebDriver driver = null;
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+        driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella!");
+        element.submit();
+        System.out.println("Page title is: " + driver.getTitle());
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella!");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        //assertTrue( driver.getTitle().toLowerCase().startsWith("nautella!"));
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella!");
+        driver.quit();
+	}
+
+	
+	@Test
 	public void androidTest() throws MalformedURLException{	
 		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe"); 
 		Map<String, String> mobileEmulation = new HashMap<String, String>();
@@ -124,7 +187,7 @@ public class ExampleSelTest {
 
 		Map<String, Object> chromeOptions = new HashMap<String, Object>();
 		chromeOptions.put("androidPackage", "com.android.chrome");
-		chromeOptions.put("androidDeviceSerial", "019c907d9c0a8f2b");
+		chromeOptions.put("androidDeviceSerial", "emulator-5554");
 	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 		
