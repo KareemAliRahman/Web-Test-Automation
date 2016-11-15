@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import TestCategories.ChromeTest;
 
 
 public class ExampleSelTest {
@@ -45,6 +48,30 @@ public class ExampleSelTest {
         driver.quit();
 
 	}
+	
+	@Test
+	@Category(ChromeTest.class)
+	public void testChrome() {
+		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe");
+    	WebDriver driver = new ChromeDriver();
+    	//driver.manage().window().setPosition(new Point(750, 1334));
+    	//driver.manage().window().setSize(new Dimension(500, 500));
+        
+    	driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella!");
+        element.submit();
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella!");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella!");
+        driver.quit();
+
+	}
+
 	
 	@Test
 	public void test1() {
@@ -160,7 +187,7 @@ public class ExampleSelTest {
 
 		Map<String, Object> chromeOptions = new HashMap<String, Object>();
 		chromeOptions.put("androidPackage", "com.android.chrome");
-		chromeOptions.put("androidDeviceSerial", "emulator-5545");
+		chromeOptions.put("androidDeviceSerial", "emulator-5554");
 	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 		

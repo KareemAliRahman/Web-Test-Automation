@@ -8,8 +8,8 @@ import java.util.Map;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +18,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import TestCategories.ChromeTest;
 
 public class SQSTest56 {
 	
@@ -68,6 +70,7 @@ public class SQSTest56 {
 	}
 
 	@Test
+	@Category(ChromeTest.class)
 	public void UseCaseChrome5() {
 		driver = new ChromeDriver();
 		useCase5(driver);
@@ -121,6 +124,7 @@ public class SQSTest56 {
 	}
 	
 	@Test
+	@Category(ChromeTest.class)
 	public void UseCaseChrome6() {
 		driver = new ChromeDriver();
 		useCase6(driver);
