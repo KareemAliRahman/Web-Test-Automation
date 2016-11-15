@@ -58,37 +58,58 @@ public class SQSTest {
 
 	// ==================================================================================================
 
-	/*
-	 * @Test public void test_3_2() {
-	 * System.setProperty("webdriver.gecko.driver",
-	 * "src\\main\\resources\\SeleniumWebDrivers\\geckodriver-v0.11.1-win64\\geckodriver.exe"
-	 * ); WebDriver driver = new FirefoxDriver();
-	 * 
-	 * driver.get("https://www.sqs.com/eg/index.php"); WebElement training =
-	 * driver.findElement(By.partialLinkText("Training")); training.click(); //
-	 * assertTrue(driver.getTitle().toLowerCase().contains("trusted provider"));
-	 * 
-	 * 
-	 * WebElement email = driver.findElement(By.id("buttonContactBox"));
-	 * email.click();
-	 * 
-	 * WebElement frame = driver.findElement(By.tagName("iframe"));
-	 * driver.switchTo().frame(frame);
-	 * 
-	 * WebElement Element = driver.findElement(By.xpath("//*[@id='Name']"));
-	 * Element.sendKeys("Riham"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Email']"));
-	 * Element.sendKeys("Riham@sqs.com"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Company']"));
-	 * Element.sendKeys("SQS"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Topic']"));
-	 * Element.sendKeys("Training"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Country']"));
-	 * Element.sendKeys("Egypt"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Datenschutz']")); Element.click();
-	 * Element = driver.findElement(By.xpath("//*[@name='reset']"));
-	 * Element.click(); driver.quit(); }
-	 */
+	@Test
+	public void test_3_2() {
+		System.setProperty("webdriver.gecko.driver",
+				"src\\main\\resources\\SeleniumWebDrivers\\geckodriver-v0.11.1-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+
+		driver.get("https://www.sqs.com/eg/index.php");
+		WebElement training = driver.findElement(By.partialLinkText("Training"));
+		training.click();
+		// assertTrue(driver.getTitle().toLowerCase().contains("trusted
+		// provider"));
+
+		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return driver.findElements(By.id("buttonContactBox")).size() > 0;
+			}
+		});
+
+		WebElement email = driver.findElement(By.id("buttonContactBox"));
+		email.click();
+		
+		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return driver.findElements(By.tagName("iframe")).size() > 0;
+			}
+		});
+
+		WebElement frame = driver.findElement(By.tagName("iframe"));
+		driver.switchTo().frame(frame);
+
+		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return driver.findElements(By.xpath("//*[@id='Name']")).size() > 0;
+			}
+		});
+		
+		WebElement Element = driver.findElement(By.xpath("//*[@id='Name']"));
+		Element.sendKeys("Riham");
+		Element = driver.findElement(By.xpath("//*[@id='Email']"));
+		Element.sendKeys("Riham@sqs.com");
+		Element = driver.findElement(By.xpath("//*[@id='Company']"));
+		Element.sendKeys("SQS");
+		Element = driver.findElement(By.xpath("//*[@id='Topic']"));
+		Element.sendKeys("Training");
+		Element = driver.findElement(By.xpath("//*[@id='Country']"));
+		Element.sendKeys("Egypt");
+		Element = driver.findElement(By.xpath("//*[@id='Datenschutz']"));
+		Element.click();
+		Element = driver.findElement(By.xpath("//*[@name='reset']"));
+		Element.click();
+		driver.quit();
+	}
 
 	// ===============================================================================================
 
@@ -207,32 +228,42 @@ public class SQSTest {
 
 	// =================================================================================================
 
-	/*
-	 * @Test public void test_4_2() {
-	 * System.setProperty("webdriver.gecko.driver",
-	 * "src\\main\\resources\\SeleniumWebDrivers\\geckodriver-v0.11.1-win64\\geckodriver.exe"
-	 * ); WebDriver driver = new FirefoxDriver();
-	 * 
-	 * driver.get("https://www.sqs.com/eg/index.php"); WebElement training =
-	 * driver.findElement(By.partialLinkText("Contact")); training.click();
-	 * 
-	 * WebElement frame = driver.findElement(By.tagName("iframe"));
-	 * driver.switchTo().frame(frame);
-	 * 
-	 * WebElement Element = driver.findElement(By.xpath("//*[@id='Name']"));
-	 * Element.sendKeys("Riham"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Email']"));
-	 * Element.sendKeys("Riham@sqs.com"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Company']"));
-	 * Element.sendKeys("SQS"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Topic']"));
-	 * Element.sendKeys("Training"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Country']"));
-	 * Element.sendKeys("Egypt"); Element =
-	 * driver.findElement(By.xpath("//*[@id='Datenschutz']")); Element.click();
-	 * Element = driver.findElement(By.xpath("//*[@name='reset']"));
-	 * Element.click(); driver.quit(); }
-	 */
+	@Test
+
+	public void test_4_2() {
+		System.setProperty("webdriver.gecko.driver",
+				"src\\main\\resources\\SeleniumWebDrivers\\geckodriver-v0.11.1-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+
+		driver.get("https://www.sqs.com/eg/index.php");
+		WebElement training = driver.findElement(By.partialLinkText("Contact"));
+		training.click();
+
+		WebElement frame = driver.findElement(By.tagName("iframe"));
+		driver.switchTo().frame(frame);
+
+		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return driver.findElements(By.xpath("//*[@id='Name']")).size() > 0;
+			}
+		});
+
+		WebElement Element = driver.findElement(By.xpath("//*[@id='Name']"));
+		Element.sendKeys("Riham");
+		Element = driver.findElement(By.xpath("//*[@id='Email']"));
+		Element.sendKeys("Riham@sqs.com");
+		Element = driver.findElement(By.xpath("//*[@id='Company']"));
+		Element.sendKeys("SQS");
+		Element = driver.findElement(By.xpath("//*[@id='Topic']"));
+		Element.sendKeys("Training");
+		Element = driver.findElement(By.xpath("//*[@id='Country']"));
+		Element.sendKeys("Egypt");
+		Element = driver.findElement(By.xpath("//*[@id='Datenschutz']"));
+		Element.click();
+		Element = driver.findElement(By.xpath("//*[@name='reset']"));
+		Element.click();
+		driver.quit();
+	}
 
 	// =============================================================================================
 
