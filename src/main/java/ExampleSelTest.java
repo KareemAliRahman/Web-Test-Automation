@@ -166,6 +166,7 @@ public class ExampleSelTest {
 
 	
 	@Test
+	@Category(ChromeTest.class)
 	public void androidTest() throws MalformedURLException{	
 		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe"); 
 		Map<String, String> mobileEmulation = new HashMap<String, String>();
