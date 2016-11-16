@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import TestCategories.ChromeTest;
+
 import org.openqa.selenium.support.ui.Select;
 
 public class Sqstest_usecase2 {
@@ -89,6 +93,7 @@ public class Sqstest_usecase2 {
 	}
 
 	@Test
+	@Category(ChromeTest.class)
 	public void test_Chrome() throws InterruptedException {
 
 		// WebDriver driver = new InternetExplorerDriver();

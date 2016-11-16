@@ -128,6 +128,7 @@ public class SQSTest56 {
 	public void UseCaseChrome6() {
 		driver = new ChromeDriver();
 		useCase6(driver);
+		fail("failure ay klam");
 	}
 	
 	@Test

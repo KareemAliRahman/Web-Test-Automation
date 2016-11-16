@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import TestCategories.ChromeTest;
 
 public class Sqstest_usecase1 {
 
@@ -350,6 +353,7 @@ public void test_Firefox() throws InterruptedException {
 }
 
 @Test
+@Category(ChromeTest.class)
 public void test_Chrome() throws InterruptedException {
 	
 //	System.setProperty("webdriver.gecko.driver", "C:\\Users\\elsherbina\\Desktop\\Selenium Project\\geckodriver-v0.11.1-win64\\geckodriver.exe");
