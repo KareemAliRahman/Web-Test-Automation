@@ -23,6 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import TestCategories.ChromeTest;
+import TestCategories.TestGridTest;
 
 
 public class ExampleSelTest {
@@ -129,6 +130,141 @@ public class ExampleSelTest {
         assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella!");
         driver.quit();
 	}
+	
+	@Test
+	@Category(TestGridTest.class)
+	public void testGrid1() {
+	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
+
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
+//	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//	   	cap.setBrowserName("internet explorer");
+//	   	cap.setBrowserName("");
+//	   	cap.
+	   	WebDriver driver = null;
+	   	
+	   	
+		try {
+			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+        driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella1");
+        element.submit();
+        System.out.println("Page title is: " + driver.getTitle());
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella1");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        //assertTrue( driver.getTitle().toLowerCase().startsWith("nautella!"));
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella1");
+        driver.quit();
+	}
+
+	@Test
+	@Category(TestGridTest.class)
+	public void testGrid2() {
+	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
+
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
+//	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//	   	cap.setBrowserName("internet explorer");
+//	   	cap.setBrowserName("");
+//	   	cap.
+	   	WebDriver driver = null;
+		try {
+			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+        driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella2");
+        element.submit();
+        System.out.println("Page title is: " + driver.getTitle());
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella2");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        //assertTrue( driver.getTitle().toLowerCase().startsWith("nautella!"));
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella2");
+        driver.quit();
+	}
+	
+	@Test
+	@Category(TestGridTest.class)
+	public void testGrid3() {
+	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
+
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
+//	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//	   	cap.setBrowserName("internet explorer");
+//	   	cap.setBrowserName("");
+//	   	cap.
+	   	WebDriver driver = null;
+		try {
+			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+        driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella3");
+        element.submit();
+        System.out.println("Page title is: " + driver.getTitle());
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella3");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        //assertTrue( driver.getTitle().toLowerCase().startsWith("nautella!"));
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella3");
+        driver.quit();
+	}
+	
+	@Test
+	@Category(TestGridTest.class)
+	public void testGrid4() {
+	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
+
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
+//	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//	   	cap.setBrowserName("internet explorer");
+//	   	cap.setBrowserName("");
+//	   	cap.
+	   	WebDriver driver = null;
+		try {
+			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+        driver.get("http://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Nautella4");
+        element.submit();
+        System.out.println("Page title is: " + driver.getTitle());
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	return d.getTitle().toLowerCase().startsWith("nautella4");
+            }
+        });
+        System.out.println("Page title is: " + driver.getTitle());
+        //assertTrue( driver.getTitle().toLowerCase().startsWith("nautella!"));
+        assertEquals(driver.getTitle().toLowerCase().split(" ")[0],"nautella4");
+        driver.quit();
+	}
+
 	
 	@Test
 	public void test2Grid() {
