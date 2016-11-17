@@ -25,12 +25,12 @@ public class Sqstest_usecase2 {
 	@BeforeClass
 	public static void setUp() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\elsherbina\\Desktop\\Selenium Project\\ChromeDriver_win32_2.25\\chromedriver.exe");
+				"src/main/resources/SeleniumWebDrivers/ChromeDriver_win32_2.25/chromedriver.exe");
 
 		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\elsherbina\\Desktop\\Selenium Project\\geckodriver-v0.11.1-win64\\geckodriver.exe");
+				"src/main/resources/SeleniumWebDrivers/geckodriver-v0.11.1-win64/geckodriver.exe");
 		System.setProperty("webdriver.ie.driver",
-				"C:\\Users\\elsherbina\\Desktop\\Selenium Project\\IEDriverServer_X32_2.53.1\\IEDriverServer.exe");
+				"src/main/resources/SeleniumWebDrivers/IEDriverServer_X32_2.53.1/IEDriverServer.exe");
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class Sqstest_usecase2 {
 
 		// Thread.sleep(10000);
 		//
-		// element = (WebElement) driver.findElement(By.linkText("Über SQS"));
+		// element = (WebElement) driver.findElement(By.linkText("ï¿½ber SQS"));
 		// ((WebElement) element).click();
 		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver d) {
@@ -71,7 +71,7 @@ public class Sqstest_usecase2 {
 		});
 
 		builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(By.linkText("Über SQS"))).perform();
+		builder.moveToElement(driver.findElement(By.linkText("ï¿½ber SQS"))).perform();
 		driver.findElement(By.linkText("Unternehmensprofil")).click();
 		;
 
@@ -84,7 +84,7 @@ public class Sqstest_usecase2 {
 		//// driver.findElement(By.linkText("Unternehmensprofil")).sendKeys(Keys.ENTER);
 		//
 		// Thread.sleep(1000);
-		driver.findElement(By.linkText("Unternehmenspräsentation")).sendKeys(Keys.ENTER);
+		driver.findElement(By.linkText("Unternehmensprï¿½sentation")).sendKeys(Keys.ENTER);
 
 		// Thread.sleep(1000);
 
@@ -122,11 +122,11 @@ public class Sqstest_usecase2 {
 
 		// Thread.sleep(10000);
 		//
-		// element = (WebElement) driver.findElement(By.linkText("Über SQS"));
+		// element = (WebElement) driver.findElement(By.linkText("ï¿½ber SQS"));
 		// ((WebElement) element).click();
 
 		builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(By.linkText("Über SQS"))).perform();
+		builder.moveToElement(driver.findElement(By.linkText("ï¿½ber SQS"))).perform();
 		driver.findElement(By.linkText("Unternehmensprofil")).click();
 		;
 
@@ -139,7 +139,7 @@ public class Sqstest_usecase2 {
 		//// driver.findElement(By.linkText("Unternehmensprofil")).sendKeys(Keys.ENTER);
 		//
 		// Thread.sleep(1000);
-		driver.findElement(By.linkText("Unternehmenspräsentation")).sendKeys(Keys.ENTER);
+		driver.findElement(By.linkText("Unternehmensprï¿½sentation")).sendKeys(Keys.ENTER);
 
 		// Thread.sleep(1000);
 
@@ -189,11 +189,11 @@ public class Sqstest_usecase2 {
 
 		// Thread.sleep(10000);
 		//
-		// element = (WebElement) driver.findElement(By.linkText("Über SQS"));
+		// element = (WebElement) driver.findElement(By.linkText("ï¿½ber SQS"));
 		// ((WebElement) element).click();
 
 		// builder = new Actions(driver);
-		// builder.moveToElement(driver.findElement(By.linkText("Über
+		// builder.moveToElement(driver.findElement(By.linkText("ï¿½ber
 		// SQS"))).perform();
 		// driver.findElement(By.linkText("Unternehmensprofil")).click();
 		// ;
@@ -207,7 +207,7 @@ public class Sqstest_usecase2 {
 		//// driver.findElement(By.linkText("Unternehmensprofil")).sendKeys(Keys.ENTER);
 		//
 		// Thread.sleep(1000);
-		driver.findElement(By.linkText("Unternehmenspräsentation")).sendKeys(Keys.ENTER);
+		driver.findElement(By.linkText("Unternehmensprï¿½sentation")).sendKeys(Keys.ENTER);
 
 		// Thread.sleep(1000);
 
