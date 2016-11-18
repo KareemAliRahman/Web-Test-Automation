@@ -120,10 +120,12 @@ public class SQSTest {
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://www.sqs.com/eg/index.php");
+		// or you can type: driver.navigate().to("https://www.sqs.com/eg/index.php");
+		
 		WebElement training = driver.findElement(By.partialLinkText("Training"));
 		training.click();
 		assertTrue(driver.getTitle().toLowerCase().contains("trusted provider"));
-
+		
 		WebElement email = driver.findElement(By.id("buttonContactBox"));
 		email.click();
 		WebElement frame = driver.findElement(By.tagName("iframe"));
