@@ -26,6 +26,7 @@
 					<testSourceDirectory>${basedir}/src/main/java/</testSourceDirectory>
 					<testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
 					<groups>TestCategories.ChromeTest</groups>
+					<groups>TestCategories.TestGridTest</groups>
 					<includes>
 						<include>**/*.java</include>
 					</includes>

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
@@ -27,6 +28,15 @@ import TestCategories.TestGridTest;
 
 
 public class ExampleSelTest {
+	
+	@BeforeClass
+	public static void setUp(){
+		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\SeleniumWebDrivers\\ChromeDriver_win32_2.25\\chromedriver.exe");
+    	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_Win32_3.0.0\\IEDriverServer.exe");
+    	System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\SeleniumWebDrivers\\geckodriver-v0.11.1-win64\\geckodriver.exe");
+
+	}
+	
 
 	@Test
 	public void test() {
@@ -134,9 +144,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid1() {
-	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
-
-	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -146,7 +154,7 @@ public class ExampleSelTest {
 	   	
 	   	
 		try {
-			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -169,9 +177,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid2() {
-	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
-
-	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -179,7 +185,7 @@ public class ExampleSelTest {
 //	   	cap.
 	   	WebDriver driver = null;
 		try {
-			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -202,9 +208,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid3() {
-	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
-
-	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -212,7 +216,7 @@ public class ExampleSelTest {
 //	   	cap.
 	   	WebDriver driver = null;
 		try {
-			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -235,9 +239,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid4() {
-	   	System.setProperty("webdriver.ie.driver", "src\\main\\resources\\SeleniumWebDrivers\\IEDriverServer_x32_2.53.1\\IEDriverServer.exe");
-
-	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -245,7 +247,7 @@ public class ExampleSelTest {
 //	   	cap.
 	   	WebDriver driver = null;
 		try {
-			driver = new RemoteWebDriver(new URL("http://192.168.218.92:4444/wd/hub"),cap);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
