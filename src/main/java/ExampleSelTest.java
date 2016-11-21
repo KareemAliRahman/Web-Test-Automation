@@ -144,7 +144,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid1() {
-	   	DesiredCapabilities cap = DesiredCapabilities.internetexplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -177,7 +177,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid2() {
-	   	DesiredCapabilities cap = DesiredCapabilities.internetexplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -208,7 +208,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid3() {
-	   	DesiredCapabilities cap = DesiredCapabilities.internetexplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
@@ -239,7 +239,7 @@ public class ExampleSelTest {
 	@Test
 	@Category(TestGridTest.class)
 	public void testGrid4() {
-	   	DesiredCapabilities cap = DesiredCapabilities.internetexplorer();
+	   	DesiredCapabilities cap = DesiredCapabilities.internetExplorer();
 	   	//DesiredCapabilities cap = DesiredCapabilities.edge();
 //	   	cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 //	   	cap.setBrowserName("internet explorer");
