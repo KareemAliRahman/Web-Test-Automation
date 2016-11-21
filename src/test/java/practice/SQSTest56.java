@@ -1,3 +1,5 @@
+package practice;
+
 import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
@@ -19,7 +21,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import TestCategories.ChromeTest;
+import practice.TestCategories.ChromeTest;
 
 public class SQSTest56 {
 	

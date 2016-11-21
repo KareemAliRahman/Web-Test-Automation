@@ -1,3 +1,5 @@
+package practice;
+
 import static org.junit.Assert.*;
 import java.util.List;
 
@@ -16,7 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import TestCategories.ChromeTest;
+import practice.TestCategories.ChromeTest;
 
 import org.openqa.selenium.support.ui.Select;
 

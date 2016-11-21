@@ -1,3 +1,5 @@
+package practice;
+
 import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
@@ -23,8 +25,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import TestCategories.ChromeTest;
-import TestCategories.TestGridTest;
+import practice.TestCategories.ChromeTest;
+import practice.TestCategories.TestGridTest;
 
 
 public class ExampleSelTest {
