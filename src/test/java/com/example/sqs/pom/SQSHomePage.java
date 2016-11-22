@@ -30,6 +30,10 @@ public class SQSHomePage {
 	@CacheLookup
 	private WebElement text;
 	
+	@FindBy(name = "search_item")
+	@CacheLookup
+	private WebElement searchBox;
+	
 	public SQSHomePage(WebDriver driver){
 		this.driver = driver;
 
@@ -58,6 +62,11 @@ public class SQSHomePage {
 	
 	public String getTextFromSQSPage(){
 		return this.text.getAttribute("innerText");
+	}
+	
+	public void searchFor(String keyword){
+		searchBox.sendKeys(keyword);
+		searchBox.submit();
 	}
 	
 	

@@ -9,17 +9,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import com.example.sqs.pom.SQSHomePage;
-
-import net.sf.cglib.transform.impl.InterceptFieldTransformer;
 
 public class SQSLanguageValidationTest {
 	
@@ -37,11 +33,12 @@ public class SQSLanguageValidationTest {
 	
 	@Before
 	public void beforeTest(){
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
 	}
 	
 	@Test
-	public void sqsLanguageValidationTest() throws InterruptedException{
+	@Ignore
+	public void sqsLanguageValidationTest(){
 		driver.get("http://www.sqs.com");
 		
 		//create SQSHomePage and intialize webElements in it
@@ -60,7 +57,7 @@ public class SQSLanguageValidationTest {
 	}
 	
 	@After
-	public void afterTest() throws InterruptedException{
+	public void afterTest(){
 		driver.close();
 	}
 }
