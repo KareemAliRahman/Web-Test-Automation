@@ -21,7 +21,7 @@ public class SQSLanguageValidationTest {
 	
 	private WebDriver driver;
 	String country = "Germany";
-	String pageTitle = "SQS ist der weltweit führende Spezialist für Software-Qualität.";
+	String pageTitle = "SQS ist der weltweit fÃ¼hrende Spezialist fÃ¼r Software-QualitÃ¤t.";
 	String lang = "de";
 	
 	@BeforeClass

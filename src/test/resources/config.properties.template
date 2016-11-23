@@ -1,0 +1,8 @@
+#'environment' -> prod (to use selenium grid) | dev ------ the default is prod
+#environment=prod
+
+#'chromeDriverHost'
+#'chromeDriverPORT'
+
+#'android-sdk-path'
+#'emulator-id'

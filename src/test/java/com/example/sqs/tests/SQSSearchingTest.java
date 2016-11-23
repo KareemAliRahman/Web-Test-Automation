@@ -15,8 +15,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
+import junitparams.Parameters;
+import junitparams.naming.TestCaseName;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,19 +26,22 @@ import org.openqa.selenium.support.PageFactory;
 import com.example.sqs.pom.SQSHomePage;
 import com.example.sqs.pom.SQSSearchPage;
 
-@RunWith(Parameterized.class)
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
+
+@RunWith(JUnitParamsRunner.class)
 public class SQSSearchingTest {
 	private WebDriver driver;
 	
-    @Parameters(name = "{index}:SQSSearchingTest - {0}")
-    public static Collection<String> data() {
-        return Arrays.asList(new String[] {"services", "technologies"});
-    }
-    
-	@Parameter
-	public String keyword;
-	
-	String pageTitle = "SQS ist der weltweit führende Spezialist für Software-Qualität.";
+//    @Parameters(name = "{index}:SQSSearchingTest - {0}")
+//    public static Collection<String> data() {
+//        return Arrays.asList(new String[] {"services", "technologies"});
+//    }
+//    
+//	@Parameter
+//	public String keyword;
+//	
+	String pageTitle = "SQS ist der weltweit fÃ¼hrende Spezialist fÃ¼r Software-QualitÃ¤t.";
 
 	@BeforeClass
 	public static void setUp() {
@@ -55,7 +59,9 @@ public class SQSSearchingTest {
 	}
 
 	@Test
-	public void SQSSearchingTest(){
+	@FileParameters("src/test/resources/com/example/sqs/tests/SQSSearchingTest.csv")
+	@TestCaseName("SQSSearchingTest - on: {0} ,with keyword: {1}")
+	public void SQSSearchingTest(String driver, String keyword){
 		driver.get("http://www.sqs.com");
 		
 		SQSHomePage sqsHome = PageFactory.initElements(driver, SQSHomePage.class);

@@ -17,3 +17,6 @@ hs_err_pid*
 .classpath
 .project
 /.settings/
+
+# ignore properties file
+*.properties
