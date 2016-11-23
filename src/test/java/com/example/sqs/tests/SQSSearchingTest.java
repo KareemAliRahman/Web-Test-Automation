@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collection;
 
 import org.apache.http.HttpResponse;
 import org.apache.tika.language.LanguageIdentifier;
@@ -11,6 +13,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,9 +25,18 @@ import org.openqa.selenium.support.PageFactory;
 import com.example.sqs.pom.SQSHomePage;
 import com.example.sqs.pom.SQSSearchPage;
 
+@RunWith(Parameterized.class)
 public class SQSSearchingTest {
 	private WebDriver driver;
-	String keyword = "services";
+	
+    @Parameters(name = "{index}:SQSSearchingTest - {0}")
+    public static Collection<String> data() {
+        return Arrays.asList(new String[] {"services", "technologies"});
+    }
+    
+	@Parameter
+	public String keyword;
+	
 	String pageTitle = "SQS ist der weltweit führende Spezialist für Software-Qualität.";
 
 	@BeforeClass
