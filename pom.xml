@@ -4,6 +4,14 @@
 	<groupId>Web-Test-Automation</groupId>
 	<artifactId>Web-Test-Automation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<properties>
+        <project.java.version>1.8</project.java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -37,10 +45,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<trimStackTrace>false</trimStackTrace>
-					<excludes>
-						<exclude>**/practice/*.java</exclude>
-						<exclude>**/practice/TestSuites/**.java</exclude>
-						<exclude>**/practice/TestCategories/**.java</exclude>
+					<excludes> 
 					</excludes>
 					<parallel>all</parallel>
 					<threadCount>10</threadCount>
