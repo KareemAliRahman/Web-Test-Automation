@@ -1,4 +1,4 @@
-package com.example.sqs.tests;
+package com.sqs.internalproject.tests;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,8 +22,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.example.sqs.pom.SQSHomePage;
-import com.example.sqs.pom.SQSSearchPage;
+import com.sqs.internalproject.pageobjects.SQSHomePage;
+import com.sqs.internalproject.pageobjects.SQSSearchPage;
 
 @RunWith(Parameterized.class)
 public class SQSSearchingTest {
@@ -37,7 +37,7 @@ public class SQSSearchingTest {
 	@Parameter
 	public String keyword;
 	
-	String pageTitle = "SQS ist der weltweit führende Spezialist für Software-Qualität.";
+	String pageTitle = "SQS ist der weltweit fï¿½hrende Spezialist fï¿½r Software-Qualitï¿½t.";
 
 	@BeforeClass
 	public static void setUp() {

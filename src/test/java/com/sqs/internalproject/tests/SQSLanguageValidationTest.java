@@ -1,4 +1,4 @@
-package com.example.sqs.tests;
+package com.sqs.internalproject.tests;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.example.sqs.pom.SQSHomePage;
+import com.sqs.internalproject.pageobjects.SQSHomePage;
 
 public class SQSLanguageValidationTest {
 	

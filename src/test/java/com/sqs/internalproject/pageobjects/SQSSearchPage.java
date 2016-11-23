@@ -1,4 +1,4 @@
-package com.example.sqs.pom;
+package com.sqs.internalproject.pageobjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
