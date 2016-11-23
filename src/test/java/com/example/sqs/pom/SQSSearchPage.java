@@ -10,9 +10,24 @@ public class SQSSearchPage {
 	@CacheLookup
 	private WebElement searchHeader;
 	
+	@FindBy(linkText = "next >>")
+	@CacheLookup
+	private WebElement nextButton;
+	
+	@FindBy(linkText = "<< previous")
+	@CacheLookup
+	private WebElement previousButton;
+	
 	public WebElement getSearchHeader(){
 		return this.searchHeader;
 	}
 	
+	public void showNextSearchPage(){
+		this.nextButton.click();
+	}
 	
+	public void showPreviousSearchPage(){
+		this.previousButton.click();
+	}
+
 }

@@ -2,6 +2,10 @@ package com.example.sqs.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.apache.http.HttpResponse;
 import org.apache.tika.language.LanguageIdentifier;
 import org.junit.After;
 import org.junit.Before;
@@ -13,10 +17,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.example.sqs.pom.SQSHomePage;
+import com.example.sqs.pom.SQSSearchPage;
 
 public class SQSSearchingTest {
 	private WebDriver driver;
-	String keyword = "Germany";
+	String keyword = "services";
 	String pageTitle = "SQS ist der weltweit führende Spezialist für Software-Qualität.";
 
 	@BeforeClass
@@ -45,6 +50,15 @@ public class SQSSearchingTest {
 		assertTrue("Unexpected page. got page title:" + driver.getCurrentUrl(),
 				driver.getCurrentUrl().contains("search_item=" + keyword));
 		
+		SQSSearchPage sqsSearch = PageFactory.initElements(driver, SQSSearchPage.class);
+		
+		sqsSearch.showNextSearchPage();
+		
+		assertTrue("Page is not found", URLResponse(driver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
+		
+		sqsSearch.showPreviousSearchPage();
+		
+		assertTrue("Page is not found", URLResponse(driver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
 		
 	}
 
@@ -52,6 +66,20 @@ public class SQSSearchingTest {
 	public void afterTest() throws InterruptedException {
 		Thread.sleep(2500);
 		driver.close();
+	}
+	
+	public static int URLResponse(String URLName){
+	    try {
+	      HttpURLConnection.setFollowRedirects(false);
+	      HttpURLConnection con =
+	         (HttpURLConnection) new URL(URLName).openConnection();
+	      con.setRequestMethod("HEAD");
+	      return con.getResponseCode();
+	    }
+	    catch (Exception e) {
+	       e.printStackTrace();
+	       return 0;
+	    }
 	}
 
 }
