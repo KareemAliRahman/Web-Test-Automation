@@ -30,7 +30,7 @@ public class SeleniumTestUtils {
 		chromeOptions.put("mobileEmulation", mobileEmulation);
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-		return DesiredCapabilities.chrome();
+		return capabilities;
 	}
 
 	public static DesiredCapabilities getCapabilitiess(String driver) {
@@ -92,5 +92,10 @@ public class SeleniumTestUtils {
 		}else{
 			return getDriverRemote(driver);
 		}
+	}
+	
+	public static void main(String []args){
+		WebDriver d = getDriver("iphone");
+		d.get("http://www.sqs.com");
 	}
 }

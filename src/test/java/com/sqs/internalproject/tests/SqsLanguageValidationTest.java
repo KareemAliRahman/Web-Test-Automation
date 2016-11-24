@@ -14,10 +14,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
+import com.sqs.internalproject.pageobjects.SqsHomePage;
 
-import com.sqs.internalproject.pageobjects.SQSHomePage;
-
-public class SQSLanguageValidationTest {
+public class SqsLanguageValidationTest {
 	
 	private WebDriver driver;
 	String country = "Germany";
@@ -42,7 +41,7 @@ public class SQSLanguageValidationTest {
 		driver.get("http://www.sqs.com");
 		
 		//create SQSHomePage and intialize webElements in it
-		SQSHomePage sqsHome = PageFactory.initElements(driver, SQSHomePage.class);
+		SqsHomePage sqsHome = PageFactory.initElements(driver, SqsHomePage.class);
 		
 		sqsHome.chooseCountry(country);
 		

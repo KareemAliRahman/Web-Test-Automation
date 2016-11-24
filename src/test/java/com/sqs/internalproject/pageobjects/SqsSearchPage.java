@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class SQSSearchPage {
+public class SqsSearchPage {
 	
 	@FindBy(xpath = "//*[@id='content']/h1")
 	@CacheLookup

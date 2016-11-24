@@ -1,2 +1,72 @@
 chrome,services
+firefox,services
+ie,services
 iphone7,services
+samsung galaxy s3,services
+iphone6splus,services
+LGG5,services
+Android,services
+chrome,technologies
+firefox,technologies
+ie,technologies
+iphone7,technologies
+samsung galaxy s3,technologies
+iphone6splus,technologies
+LGG5,technologies
+Android,technologies
+chrome,jobs
+firefox,jobs
+ie,jobs
+iphone7,jobs
+samsung galaxy s3,jobs
+iphone6splus,jobs
+LGG5,jobs
+Android,jobs
+chrome,software
+firefox,software
+ie,software
+iphone7,software
+samsung galaxy s3,software
+iphone6splus,software
+LGG5,software
+Android,software
+chrome,robotics
+firefox,robotics
+ie,robotics
+iphone7,robotics
+samsung galaxy s3,robotics
+iphone6splus,robotics
+LGG5,robotics
+Android,robotics
+chrome,automotive
+firefox,automotive
+ie,automotive
+iphone7,automotive
+samsung galaxy s3,automotive
+iphone6splus,automotive
+LGG5,automotive
+Android,automotive
+chrome,industry
+firefox,industry
+ie,industry
+iphone7,industry
+samsung galaxy s3,industry
+iphone6splus,industry
+LGG5,industry
+Android,industry
+chrome,media
+firefox,media
+ie,media
+iphone7,media
+samsung galaxy s3,media
+iphone6splus,media
+LGG5,media
+Android,media
+chrome,space
+firefox,space
+ie,space
+iphone7,space
+samsung galaxy s3,space
+iphone6splus,space
+LGG5,space
+Android,space

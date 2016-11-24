@@ -9,7 +9,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class SQSHomePage {
+public class SqsHomePage {
 	
 	private final WebDriver driver;
 
@@ -34,7 +34,7 @@ public class SQSHomePage {
 	@CacheLookup
 	private WebElement searchBox;
 	
-	public SQSHomePage(WebDriver driver){
+	public SqsHomePage(WebDriver driver){
 		this.driver = driver;
 
 		if (!driver.getTitle().startsWith("SQS")) {
