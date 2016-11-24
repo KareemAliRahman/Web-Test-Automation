@@ -25,7 +25,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.sqs.internalproject.pageobjects.SqsHomePage;
+import com.sqs.internalproject.pageobjects.SqsHomePageMobile;
 import com.sqs.internalproject.pageobjects.SqsSearchPage;
 
 import commonUtils.SeleniumTestUtils;
@@ -47,105 +52,102 @@ public class SqsSearchingTest {
 				"src/test/resources/SeleniumWebDrivers/geckodriver-v0.11.1-win64/geckodriver.exe");
 	}
 
+	@Test
+	@Parameters({ "firefox,services" })
+	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingDesktopTest.csv")
+	@TestCaseName("sqsSearchingDesktopTest - on: {0} with keyword: {1}")
+	public void sqsSearchingDesktopTest(String driver, String keyword) {
+		webDriver = SeleniumTestUtils.getDriver(driver);
+		webDriver.get("http://www.sqs.com");
+
+		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
+
+		sqsHome.searchFor(keyword);
+
+		(new WebDriverWait(webDriver, 10)).until(
+				ExpectedConditions.urlToBe("https://www.sqs.com/en-group/_meta/search.php?search_item=" + keyword));
+		assertTrue("Unexpected page. got page title:" + webDriver.getCurrentUrl(),
+				webDriver.getCurrentUrl().contains("search_item=" + keyword));
+
+		SqsSearchPage sqsSearch = PageFactory.initElements(webDriver, SqsSearchPage.class);
+
+		sqsSearch.showNextSearchPage();
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+
+		sqsSearch.showPreviousSearchPage();
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+	}
 
 	@Test
-	//@FileParameters("src/test/resources/com/sqs/internalproject/SQSSearchingTest.csv")
-	@Parameters({ "iphone7, technologies"})
-	@TestCaseName("SQSSearchingDesktopTest - on: {0} with keyword: {1}")
-	public void sqsSearchingDesktopTest(String driver, String keyword){
+	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingMobileTest.csv")
+	@TestCaseName("sqsSearchingMobileTest - on: {0} with keyword: {1}")
+	public void sqsSearchingMobileTest(String driver, String keyword) {
 		webDriver = SeleniumTestUtils.getDriver(driver);
 		webDriver.get("http://www.sqs.com");
-		
-		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
-		
+
+		SqsHomePageMobile sqsHome = PageFactory.initElements(webDriver, SqsHomePageMobile.class);
+
 		sqsHome.searchFor(keyword);
-		
+
 		assertTrue("Unexpected page. got page title:" + webDriver.getCurrentUrl(),
 				webDriver.getCurrentUrl().contains("search_item=" + keyword));
-		
+
 		SqsSearchPage sqsSearch = PageFactory.initElements(webDriver, SqsSearchPage.class);
-		
+
 		sqsSearch.showNextSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-		
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+
 		sqsSearch.showPreviousSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-	}
-	
-	@Test
-	//@FileParameters("src/test/resources/com/sqs/internalproject/SQSSearchingTest.csv")
-	@Parameters({ "iphone7, technologies"})
-	@TestCaseName("SqsSearchingMobileTest - on: {0} with keyword: {1}")
-	public void sqsSearchingMobileTest(String driver, String keyword){
-		webDriver = SeleniumTestUtils.getDriver(driver);
-		webDriver.get("http://www.sqs.com");
-		
-		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
-		
-		sqsHome.searchFor(keyword);
-		
-		assertTrue("Unexpected page. got page title:" + webDriver.getCurrentUrl(),
-				webDriver.getCurrentUrl().contains("search_item=" + keyword));
-		
-		SqsSearchPage sqsSearch = PageFactory.initElements(webDriver, SqsSearchPage.class);
-		
-		sqsSearch.showNextSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-		
-		sqsSearch.showPreviousSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-		
-	}
-	
-	@Test
-	//@FileParameters("src/test/resources/com/sqs/internalproject/SQSSearchingTest.csv")
-	@Parameters({ "iphone7, technologies"})
-	@TestCaseName("SqsSearchingAndroidTest - on: {0} with keyword: {1}")
-	public void sqsSearchingAndroidTest(String driver, String keyword){
-		webDriver = SeleniumTestUtils.getDriver(driver);
-		webDriver.get("http://www.sqs.com");
-		
-		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
-		
-		sqsHome.searchFor(keyword);
-		
-		assertTrue("Unexpected page. got page title:" + webDriver.getCurrentUrl(),
-				webDriver.getCurrentUrl().contains("search_item=" + keyword));
-		
-		SqsSearchPage sqsSearch = PageFactory.initElements(webDriver, SqsSearchPage.class);
-		
-		sqsSearch.showNextSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-		
-		sqsSearch.showPreviousSearchPage();
-		
-		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl())!= HttpURLConnection.HTTP_NOT_FOUND);
-		
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+
 	}
 
+	@Test
+	//@Parameters({ "ie,services" })
+	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingAndroidTest.csv")
+	@TestCaseName("sqsSearchingAndroidTest - on: {0} with keyword: {1}")
+	public void sqsSearchingAndroidTest(String driver, String keyword) {
+		webDriver = SeleniumTestUtils.getDriver(driver);
+		webDriver.get("http://www.sqs.com");
+
+		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
+
+		sqsHome.searchFor(keyword);
+
+		assertTrue("Unexpected page. got page title:" + webDriver.getCurrentUrl(),
+				webDriver.getCurrentUrl().contains("search_item=" + keyword));
+
+		SqsSearchPage sqsSearch = PageFactory.initElements(webDriver, SqsSearchPage.class);
+
+		sqsSearch.showNextSearchPage();
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+
+		sqsSearch.showPreviousSearchPage();
+
+		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
+
+	}
 
 	@After
-	public void afterTest(){
-		//webDriver.close();
+	public void afterTest() {
+		webDriver.quit();
 	}
-	
-	public static int URLResponse(String URLName){
-	    try {
-	      HttpURLConnection.setFollowRedirects(false);
-	      HttpURLConnection con =
-	         (HttpURLConnection) new URL(URLName).openConnection();
-	      con.setRequestMethod("HEAD");
-	      return con.getResponseCode();
-	    }
-	    catch (Exception e) {
-	       e.printStackTrace();
-	       return 0;
-	    }
+
+	public static int URLResponse(String URLName) {
+		try {
+			HttpURLConnection.setFollowRedirects(false);
+			HttpURLConnection con = (HttpURLConnection) new URL(URLName).openConnection();
+			con.setRequestMethod("HEAD");
+			return con.getResponseCode();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 }
