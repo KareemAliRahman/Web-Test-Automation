@@ -18,3 +18,10 @@
  - Created Branches are then merged locally with **`dev`**  branch.
  - Created Branches are then deleted after merging with dev is successful.
  - **Don't Commit on Master Branch.**
+ 
+# Recommendations
+ - Consider the possiblity of using TestNG instead of JUnit (better test grouping, parallel execution management)
+ - Need to improve the quality of util code ande code used for test intialization
+ - Consider using a better strategy for Tests run on Android emulation
+ - FIREFOX causes problems (surprisingly)
+ - Research how to choose number of concurrent tests to be run on a given machine.

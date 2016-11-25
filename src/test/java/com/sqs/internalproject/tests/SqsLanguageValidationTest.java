@@ -23,6 +23,9 @@ import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import junitparams.naming.TestCaseName;
+import org.junit.experimental.categories.Category;
+import com.sqs.internalproject.tests.testGroups.AndroidTests;
+
 
 @RunWith(JUnitParamsRunner.class)
 public class SqsLanguageValidationTest {
@@ -39,8 +42,8 @@ public class SqsLanguageValidationTest {
 
 	
 	@Test
-	//@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationDesktopTest.csv")
-	@Parameters({"firefox, Germany, de"})
+	@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationDesktopTest.csv")
+	// @Parameters({"firefox, Germany, de"})
 	@TestCaseName("sqsLanguageValidationDesktopTest - on: {0} with Country: {1} and Language: {2}")
 	public void sqsLanguageValidationDesktopTest(String driver, String country, String lang){
 		webDriver = SeleniumTestUtils.getDriver(driver);
@@ -63,7 +66,7 @@ public class SqsLanguageValidationTest {
 	
 	@Test
 	@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationMobileTest.csv")
-//	@Parameters({"samsung galaxy s3, Germany, de"})
+	// @Parameters({"samsung galaxy s3, Germany, de"})
 	@TestCaseName("sqsLanguageValidationMobileTest - on: {0} with Country: {1} and Language: {2}")
 	public void sqsLanguageValidationMobileTest(String driver, String country, String lang){
 		webDriver = SeleniumTestUtils.getDriver(driver);
@@ -84,7 +87,9 @@ public class SqsLanguageValidationTest {
 		assertTrue("Not expected language", language.equals(lang));
 	}
 	
+	@Ignore
 	@Test
+	@Category(AndroidTests.class)
 	//@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationAndroidTest.csv")
 	@Parameters({"chrome, Germany, de"})
 	@TestCaseName("sqsLanguageValidationAndroidTest - on: {0} with Country: {1} and Language: {2}")
@@ -94,7 +99,7 @@ public class SqsLanguageValidationTest {
 		webDriver.get("http://www.sqs.com");
 		
 		//create SQSHomePage and intialize webElements in it
-		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
+		SqsHomePageMobile sqsHome = PageFactory.initElements(webDriver, SqsHomePageMobile.class);
 		
 		sqsHome.chooseCountry(country);
 		

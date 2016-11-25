@@ -38,13 +38,9 @@ import commonUtils.SeleniumTestUtils;
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
+import org.junit.experimental.categories.Category;
+import com.sqs.internalproject.tests.testGroups.AndroidTests;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.MalformedURLException;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 
 @RunWith(JUnitParamsRunner.class)
@@ -63,7 +59,7 @@ public class SqsSearchingTest {
 	}
 
 	@Test
-//	@Parameters({ "firefox,services" })
+	// @Parameters({ "firefox,services" })
 	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingDesktopTest.csv")
 	@TestCaseName("sqsSearchingDesktopTest - on: {0} with keyword: {1}")
 	public void sqsSearchingDesktopTest(String driver, String keyword) {
@@ -91,6 +87,7 @@ public class SqsSearchingTest {
 	}
 
 	@Test
+	// @Parameters({ "firefox,services" })
 	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingMobileTest.csv")
 	@TestCaseName("sqsSearchingMobileTest - on: {0} with keyword: {1}")
 	public void sqsSearchingMobileTest(String driver, String keyword) {
@@ -116,9 +113,11 @@ public class SqsSearchingTest {
 
 	}
 	
+	@Ignore
 	@Test
-	@Parameters({ "Android,services", "Android, technologies"})
-	//@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingAndroidTest.csv")
+	@Category(AndroidTests.class)
+	@Parameters({"Android, technologies"})
+	// @FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingAndroidTest.csv")
 	@TestCaseName("sqsSearchingAndroidTest - on: {0} with keyword: {1}")
 	public void sqsSearchingAndroidTest(String driver, String keyword) {
 		webDriver = SeleniumTestUtils.getDriver(driver);
