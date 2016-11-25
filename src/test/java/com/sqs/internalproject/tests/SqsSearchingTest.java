@@ -12,6 +12,7 @@ import org.apache.tika.language.LanguageIdentifier;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -37,6 +38,15 @@ import commonUtils.SeleniumTestUtils;
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
+
+import java.util.HashMap;
+import java.util.Map;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.MalformedURLException;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+
 @RunWith(JUnitParamsRunner.class)
 public class SqsSearchingTest {
 	private WebDriver webDriver;
@@ -53,7 +63,7 @@ public class SqsSearchingTest {
 	}
 
 	@Test
-	@Parameters({ "firefox,services" })
+//	@Parameters({ "firefox,services" })
 	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingDesktopTest.csv")
 	@TestCaseName("sqsSearchingDesktopTest - on: {0} with keyword: {1}")
 	public void sqsSearchingDesktopTest(String driver, String keyword) {
@@ -105,16 +115,17 @@ public class SqsSearchingTest {
 		assertTrue("Page is not found", URLResponse(webDriver.getCurrentUrl()) != HttpURLConnection.HTTP_NOT_FOUND);
 
 	}
-
+	
 	@Test
-	//@Parameters({ "ie,services" })
-	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingAndroidTest.csv")
+	@Parameters({ "Android,services", "Android, technologies"})
+	//@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingAndroidTest.csv")
 	@TestCaseName("sqsSearchingAndroidTest - on: {0} with keyword: {1}")
 	public void sqsSearchingAndroidTest(String driver, String keyword) {
 		webDriver = SeleniumTestUtils.getDriver(driver);
+
 		webDriver.get("http://www.sqs.com");
 
-		SqsHomePage sqsHome = PageFactory.initElements(webDriver, SqsHomePage.class);
+		SqsHomePageMobile sqsHome = PageFactory.initElements(webDriver, SqsHomePageMobile.class);
 
 		sqsHome.searchFor(keyword);
 

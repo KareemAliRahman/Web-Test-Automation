@@ -11,21 +11,21 @@ public class PropertyHandler{
 
    private Properties props = null;
 
-   private PropertyHandler(){
+   private PropertyHandler() throws IOException{
 	   FileInputStream input = null;
-	try {
+//	try {
 		input = new FileInputStream("src/test/resources/config.properties");
 		props = new Properties();
 		this.props.load(input);
 		input.close();
-	} catch(FileNotFoundException e) {
-		e.printStackTrace();
-	} catch(IOException e){
-		e.printStackTrace();
-	}
+//	} catch(FileNotFoundException e) {
+//		e.printStackTrace();
+//	} catch(IOException e){
+//		e.printStackTrace();
+//	}
    }
 
-   public static synchronized PropertyHandler getInstance(){
+   public static synchronized PropertyHandler getInstance() throws IOException{
        if (instance == null)
            instance = new PropertyHandler();
        return instance;
