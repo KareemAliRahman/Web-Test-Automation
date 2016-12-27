@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
-			<version>3.0.1</version>
+			<version>2.53.0</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -61,9 +61,9 @@
 				<version>2.19.1</version>
 				<configuration>
 					<trimStackTrace>false</trimStackTrace>
-					<parallel>all</parallel>
+<!-- 					<parallel>all</parallel>
 					<threadCount>10</threadCount>
-					<!-- <groups>com.sqs.internalproject.tests.testGroups.AndroidTests</groups>  -->
+ -->					<!-- <groups>com.sqs.internalproject.tests.testGroups.AndroidTests</groups>  -->
 				<!-- <testSourceDirectory>${basedir}/src/main/java/</testSourceDirectory> 
 					<testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory> 
 					<groups>TestCategories.ChromeTest</groups> <groups>TestCategories.TestGridTest</groups> 

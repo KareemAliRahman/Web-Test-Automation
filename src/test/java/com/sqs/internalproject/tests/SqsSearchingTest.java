@@ -59,8 +59,8 @@ public class SqsSearchingTest {
 	}
 
 	@Test
-	// @Parameters({ "firefox,services" })
-	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingDesktopTest.csv")
+	 @Parameters({ "firefox,services", "ie,services", "chrome,services" })
+//	@FileParameters("src/test/resources/com/sqs/internalproject/sqsSearchingDesktopTest.csv")
 	@TestCaseName("sqsSearchingDesktopTest - on: {0} with keyword: {1}")
 	public void sqsSearchingDesktopTest(String driver, String keyword) {
 		webDriver = SeleniumTestUtils.getDriver(driver);

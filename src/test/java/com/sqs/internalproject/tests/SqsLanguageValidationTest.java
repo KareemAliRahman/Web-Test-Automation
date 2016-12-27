@@ -42,8 +42,8 @@ public class SqsLanguageValidationTest {
 
 	
 	@Test
-	@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationDesktopTest.csv")
-	// @Parameters({"firefox, Germany, de"})
+//	@FileParameters("src/test/resources/com/sqs/internalproject/sqsLanguageValidationDesktopTest.csv")
+	@Parameters({"chrome, Germany, de"})
 	@TestCaseName("sqsLanguageValidationDesktopTest - on: {0} with Country: {1} and Language: {2}")
 	public void sqsLanguageValidationDesktopTest(String driver, String country, String lang){
 		webDriver = SeleniumTestUtils.getDriver(driver);
